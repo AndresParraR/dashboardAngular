@@ -18,10 +18,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install and build
-        run: npm install -g @angular/cli@latest && npm install && npm run build && ng deploy --base-href=https://andresparrar.github.io/dashboardAngular
+        run: npm install -g @angular/cli@latest && npm install
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+        run: ng deploy --base-href=https://andresparrar.github.io/dashboardAngular

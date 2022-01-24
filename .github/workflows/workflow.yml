@@ -21,4 +21,7 @@ jobs:
         run: npm install -g @angular/cli@latest && npm install
 
       - name: Deploy
-        run: ng deploy --base-href=https://andresparrar.github.io/dashboardAngular
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: /dist/dashboard-angular # The folder the action should deploy.

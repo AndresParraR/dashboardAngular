@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install and build
-        run: npm install && npm run build --base-herf="https://andresparrar.github.io/dashboardAngular/"
+        run: npm install && npm run build --base-herf="https://www.andresparrar.github.io/dashboardAngular/"
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.2

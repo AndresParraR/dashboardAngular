@@ -1,0 +1,49 @@
+<div style="display: flex; width: 100%;">
+  <mat-toolbar [ngClass]="{'side-nav-opened': opened}" color="primary">
+    <button class="btn-expand"(click)="opened = !opened" ><mat-icon>{{opened ? 'dashboard' : 'more_vert'}}</mat-icon></button>
+    <span class="spacer"></span>
+    <h1 class="title">{{titleNavbar}}</h1>
+    <span class="spacer"></span>
+    <button mat-icon-button><mat-icon>dashboard</mat-icon></button>
+    <button mat-icon-button><mat-icon matBadge="4" matBadgeColor="warn">notifications</mat-icon></button>
+    <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>person</mat-icon></button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item>
+        <span>My Account</span>
+      </button>
+      <button mat-menu-item>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</div>
+<mat-sidenav-container class="container-sidenav" autosize>
+	<mat-sidenav #sidenav class="sidenav" mode="side" [(opened)]="opened">
+		<mat-nav-list>
+			<mat-list-item class="brand">
+				<fa-icon mas-list-icon [icon]="angularIcon" style="font-size: 38px"></fa-icon>
+				<span>Angular JS</span>
+			</mat-list-item>
+      <mat-divider></mat-divider>
+			<mat-list-item class="avatar">
+				<div mat-card-avatar class="example-header-image"></div>
+				<span>John Leider</span>
+			</mat-list-item>
+      <mat-divider></mat-divider>
+      <div *ngFor="let link of links;let index=index">
+        <mat-list-item [routerLink]="link.route" routerLinkActive="active" class="nav-link">
+          <mat-icon>{{link.icon}}</mat-icon>
+          <span>{{link.title}}</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+      
+		</mat-nav-list>
+	</mat-sidenav>
+  <mat-sidenav-content [ngClass]="{'side-nav-opened': opened}">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

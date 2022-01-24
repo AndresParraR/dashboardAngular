@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+*{
+  box-sizing: border-box
+}
+html{
+  overflow-y: visible !important;
+}
+html, body { 
+  height: 100%; 
+  box-sizing: border-box;
+  overflow-x: hidden
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #eee;}
+button{ 
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

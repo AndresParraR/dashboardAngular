@@ -1,0 +1,10 @@
+.container-dashboard{
+  margin: 5rem 0;
+  padding: 0 3rem;
+}
+.container-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

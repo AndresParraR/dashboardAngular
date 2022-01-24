@@ -1,0 +1,109 @@
+<div class="container-administrator">
+
+  <mat-card style="width: 100%">
+    <mat-card-header>
+      <mat-form-field style="width: 35rem;" appearance="standard">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="openDialog()"><mat-icon>person_add</mat-icon></button>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="fullName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.firstName}} {{row.lastName}} </td>
+          </ng-container>
+      
+          <!-- Progress Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="roleName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+            <td mat-cell *matCellDef="let row"> {{row.roleName}} </td>
+          </ng-container>
+      
+          <!-- Fruit Column -->
+          <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+            <td mat-cell *matCellDef="let row"><mat-icon [style.color]="getColorActive(row.active)">{{getIconActive(row.active)}}</mat-icon></td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let row">
+              <div style="display: flex;">
+                <button mat-icon-button (click)="userEdit = row; openDialog()"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button (click)="deleteUser(row)"><mat-icon>delete</mat-icon></button>
+              </div>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+
+  <ng-template #callAPIDialog>
+    <h2 style="font-size: 1.25rem; font-weight: 500; text-align: center">Crear Usuario</h2>
+    <form [formGroup]="loginForm" (submit)="submit()">
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" required>
+            <mat-error *ngIf="loginForm.controls.firstName.status == 'INVALID'">{{getErrorMessage(loginForm.controls.firstName.errors)}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput  formControlName="lastName" required>
+            <mat-error *ngIf="loginForm.controls.lastName.status == 'INVALID'">{{getErrorMessage(loginForm.controls.lastName.errors)}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput  placeholder="pat@example.com" formControlName="email" required>
+            <mat-error *ngIf="loginForm.controls.email.status == 'INVALID'">{{getErrorMessage(loginForm.controls.email.errors)}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Rol</mat-label>
+            <mat-select formControlName="roleId" name="Rol">
+              <mat-option *ngFor="let role of roles" [value]="role.id">
+                {{role.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="loginForm.controls.roleId.status == 'INVALID'">{{getErrorMessage(loginForm.controls.roleId.errors)}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-checkbox class="example-margin" formControlName="active">Active</mat-checkbox>
+        </div>
+      </div>
+      
+      <mat-dialog-actions align="end">
+        <button mat-button matDialogClose>Cancel</button>
+        <button mat-button matDialogClose [disabled]="!this.loginForm.valid" type="submit">Save</button>
+      </mat-dialog-actions>
+    </form>
+  </ng-template>
+</div>

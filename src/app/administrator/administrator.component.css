@@ -1,0 +1,41 @@
+.container-administrator{
+  margin: 5rem 0;
+  padding: 0 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  padding: 8px 24px;
+}
+
+.col{
+  width: 50%;
+  padding: 1rem 1.5rem;
+  min-width: 210px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+:host /deep/ .mat-dialog-container{
+  max-width: 600px !important;
+}

@@ -1,0 +1,55 @@
+.card {
+  max-width: 300px;
+  width: 300px;
+  margin: 3rem 1.5rem;
+}
+.contain-graph-circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  color: #fff;
+  font-size: 17px;
+  background-color: #00CFE6;
+  border-radius: .25rem;
+  top: -30px;
+  z-index: 1;
+  position: relative;
+  transition: all .3s cubic-bezier(.34,1.61,.7,1);
+}
+
+.contain-card-actions{
+  display: flex;
+  justify-content: center;
+  margin-top: -60px;
+  margin-bottom: 20px;
+}
+
+.mat-card-actions{
+  padding: 0 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.contain-card-header:hover .contain-graph-circle{
+  transform: translateY(-45px)
+}
+
+:host /deep/ .ng-star-inserted{
+  stroke: #FFF !important
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}

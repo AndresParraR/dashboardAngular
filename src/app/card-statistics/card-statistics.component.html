@@ -1,0 +1,23 @@
+<mat-card class="card">
+  <div class="contain-card-header">
+    <div class="contain-graph-circle">
+      <x-chartist
+        class="chart-white"
+        [type]="type"
+        [data]="data"
+        [options]="options"
+        [events]="events"
+      ></x-chartist>
+    </div>
+    <div class="contain-card-actions">
+      <button mat-icon-button matTooltip="Palette"><mat-icon>palette</mat-icon></button>
+    </div>
+  </div>
+  <mat-card-content>
+    <h3>Laboratories Headquearters</h3>
+    <p style="display: flex;"><span class="text-icon"><mat-icon class="icon-small">arrow_upward</mat-icon> 52%</span> Increase in visitors in recent days</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-icon>schedule</mat-icon><p style="margin-left: 5px; margin: 0px">Updated 10 minutes ago</p>
+  </mat-card-actions>
+</mat-card>

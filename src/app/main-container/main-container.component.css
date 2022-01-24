@@ -1,0 +1,96 @@
+.title{
+  color: #000;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.sidenav {
+  padding: 20px;
+}
+.container-sidenav {
+  height: 100%;
+}
+.full-width {
+  width: 100%;
+}
+.mat-list-item{
+  border-radius: 0.25rem;
+  color: #FFF;
+}
+.mat-drawer{
+  transform: none;
+  width: 90px;
+  visibility: visible !important;
+  transition: all cubic-bezier(0.25, 0.8, 0.25, 1) .2s;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('../../assets/images/tree.jpg');
+}
+.mat-drawer-opened{
+  width: 250px;
+}
+.mat-drawer span{
+  display: none;
+  padding-left: 2rem;
+}
+.mat-drawer-opened span{
+  display: block;
+}
+:host /deep/ .avatar .mat-list-item-content{
+  padding: 0 4px !important;
+}
+:host /deep/ .brand .mat-list-item-content{
+  padding: 0 8px !important;
+}
+:host /deep/ .nav-link .mat-list-item-content{
+  padding: 0 12px !important;
+}
+.mat-drawer-container{
+  position: initial;
+}
+
+.mat-toolbar{
+  margin-left: 90px;
+  transition: all cubic-bezier(0.25, 0.8, 0.25, 1) .2s;
+  padding: 0 50px;
+  background-color: transparent;
+}
+.side-nav-opened{
+  margin-left: 250px !important;
+}
+.mat-sidenav-content{
+  margin-left: 90px;
+  overflow: visible;
+}
+
+.mat-drawer-content{
+  transition-property: all !important;
+  transition-duration: 0.2s !important;
+}
+
+.mat-drawer-container{
+  background-color:  transparent;
+  overflow: visible;
+}
+
+.mat-divider{
+  margin: 20px 0;
+  border-top-color: rgba(0,0,0,.4);
+}
+
+.example-header-image {
+  background-image: url('https://randomuser.me/api/portraits/men/85.jpg');
+  background-size: cover;
+}
+
+.active{
+  background-color: #000 !important;
+}
+
+.btn-expand{
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

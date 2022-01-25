@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:5000/api',
+  apiUrl: 'https://briefcase-api-node.herokuapp.com/api',
   env: 'Production'
 };
